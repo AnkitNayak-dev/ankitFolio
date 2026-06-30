@@ -61,8 +61,9 @@ export default function RootLayout({
               jobTitle: "Full-Stack Developer",
               url: "https://ankit-nayak.vercel.app/",
               sameAs: [
-                "https://linkedin.com/in/ankitnayaketh",
-                "https://github.com/AnkitNayak-eth",
+                "https://www.linkedin.com/in/ankitnayak-dev/",
+                "https://github.com/AnkitNayak-dev",
+                "https://x.com/AnkitNayak_dev",
               ],
             }),
           }}
