@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 export const BackgroundGradient = ({
   children,
@@ -10,41 +10,20 @@ export const BackgroundGradient = ({
   className?: string;
   containerClassName?: string;
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = `
-      @keyframes borderColorAnim {
-        0% { border-color: #9333ea; }
-        25% { border-color: #3b82f6; }
-        50% { border-color: #10b981; }
-        75% { border-color: #f59e0b; }
-        100% { border-color: #9333ea; }
-      }
-    `;
-    document.head.appendChild(style);
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   return (
     <div
-      ref={ref}
       className={containerClassName}
       style={{
-        padding: "",
         borderRadius: "24px",
-        border: "3px solid",
-        animation: "borderColorAnim 6s linear infinite",
+        border: "2px solid #9333ea",
+        boxShadow: "0 0 20px rgba(147, 51, 234, 0.3)",
         display: "block",
       }}
     >
       <div
         className={className}
         style={{
-          borderRadius: "20px",
+          borderRadius: "22px",
           overflow: "hidden",
         }}
       >

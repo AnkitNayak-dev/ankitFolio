@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import avatar from "@/assets/images/avatar.gif";
 import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaDownload } from "react-icons/fa";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import { FaReact } from "react-icons/fa";
 import { FaJs } from "react-icons/fa";
@@ -23,7 +23,7 @@ export const HeroSection = () => {
     "Full-Stack Dev.",
     "Digital Artist.",
     "Technophile.",
-    "Tech-Savvy.",
+    "Tech-Savvy Developer.",
   ];
   const [buttonText, setButtonText] = useState("Let's Connect");
 
@@ -155,7 +155,7 @@ export const HeroSection = () => {
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide leading-loose">
             Hi, I’m Ankit 👋
             <br />
-            I’m a<FlipWords words={words} className="text-white" />
+            I’m a <FlipWords words={words} className="text-white" />
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             Full-Stack Developer skilled in Next.js, MERN stack, and React
@@ -178,6 +178,14 @@ export const HeroSection = () => {
               <span className="font-semibold">Explore My Work</span>
               <FaArrowDown />
             </button>
+            <a
+              href="/Ankit_Kumar_Nayak_Resume.pdf"
+              download="Ankit_Kumar_Nayak_Resume.pdf"
+              className="inline-flex items-center gap-2 border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 px-6 h-12 rounded-xl transition duration-300"
+            >
+              <span className="font-semibold">Download CV</span>
+              <FaDownload className="text-xs" />
+            </a>
             <button
               onClick={handleCopy}
               className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/70 hover:text-gray-900"

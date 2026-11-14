@@ -21,6 +21,36 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async headers() {
+    return [
+      {
+        source: "/updatedMyCV.pdf",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/pdf",
+          },
+          {
+            key: "Content-Disposition",
+            value: 'attachment; filename="Ankit_Kumar_Nayak_Resume.pdf"',
+          },
+        ],
+      },
+      {
+        source: "/Ankit_Kumar_Nayak_Resume.pdf",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/pdf",
+          },
+          {
+            key: "Content-Disposition",
+            value: 'attachment; filename="Ankit_Kumar_Nayak_Resume.pdf"',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

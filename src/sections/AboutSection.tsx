@@ -137,7 +137,7 @@ export const AboutSection = () => {
               <Card className="h-[320px] p-0 relative">
                 <PinContainer
                   title="I live in India"
-                  className="h-[320px] w-[620px] md:w-[280px] lg:w-[320px] mb-8"
+                  className="h-[320px] w-[280px] sm:w-[320px] md:w-[280px] lg:w-[320px] mb-8"
                 >
                   <Image
                     src={MapImage}
@@ -159,39 +159,63 @@ export const AboutSection = () => {
       </div>
 
       {isCvOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fade-in">
-          <Card className="relative w-full max-w-4xl h-[85vh] md:h-[90vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl p-0 ring-1 ring-white/10">
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-4 text-3xl text-white/70 hover:text-white z-20 bg-black/50 hover:bg-black/80 p-2 rounded-full backdrop-blur-sm transition-all"
-              onClick={() => setIsCvOpen(false)}
-            >
-              <AiOutlineClose />
-            </button>
-
-            {/* Content Area */}
-            <div className="flex-1 w-full h-full p-4 md:p-8 flex justify-center items-center overflow-auto">
-              <Image
-                src={cv}
-                alt="CV"
-                className="w-auto h-auto max-w-full max-h-full object-contain rounded-xl"
-              />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 animate-fade-in">
+          <Card className="relative w-full max-w-4xl h-[88vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl p-0 ring-1 ring-white/10 bg-gray-950">
+            {/* Top Bar with Title and Close Button */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gray-950/90 z-20">
+              <div>
+                <h3 className="font-bold text-white text-base sm:text-lg">My CV / Resume</h3>
+                <p className="text-white/50 text-xs">Ankit Kumar Nayak • PDF Document</p>
+              </div>
+              <button
+                className="text-white/70 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                onClick={() => setIsCvOpen(false)}
+                aria-label="Close modal"
+              >
+                <AiOutlineClose className="text-2xl" />
+              </button>
             </div>
 
-            {/* Bottom Button */}
-            <div className="absolute bottom-6 w-full flex justify-center pb-2 z-20 pointer-events-none">
-              <button
-                onClick={() => window.open("/updatedMyCV.pdf", "_blank")}
-                className="pointer-events-auto relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 shadow-2xl"
-              >
-                <span
-                  className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-                  style={{ animation: "spin 4s linear infinite" }}
+            {/* Scrollable CV Preview Area */}
+            <div className="flex-1 w-full p-4 sm:p-6 overflow-y-auto flex justify-center items-start bg-gray-900/50">
+              <div className="max-w-2xl w-full bg-white rounded-xl shadow-2xl overflow-hidden border border-white/10">
+                <Image
+                  src={cv}
+                  alt="CV"
+                  className="w-full h-auto object-contain"
+                  priority
                 />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-md">
-                  View PDF →
-                </span>
-              </button>
+              </div>
+            </div>
+
+            {/* Bottom Actions Bar - Solid contrast, non-overlapping */}
+            <div className="px-6 py-4 border-t border-white/10 bg-gray-950/95 flex flex-wrap items-center justify-center sm:justify-between gap-3 z-20">
+              <span className="text-xs text-white/50 hidden sm:inline-block">
+                File: <span className="text-purple-400 font-mono">Ankit_Kumar_Nayak_Resume.pdf</span> (114 KB)
+              </span>
+              <div className="flex items-center gap-3">
+                <a
+                  href="/Ankit_Kumar_Nayak_Resume.pdf"
+                  download="Ankit_Kumar_Nayak_Resume.pdf"
+                  className="relative inline-flex h-11 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-purple-400 shadow-xl"
+                >
+                  <span
+                    className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#7e22ce_50%,#c084fc_100%)]"
+                    style={{ animation: "spin 4s linear infinite" }}
+                  />
+                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-2.5 text-sm font-semibold tracking-wide text-white backdrop-blur-md">
+                    Download PDF ↓
+                  </span>
+                </a>
+                <a
+                  href="/Ankit_Kumar_Nayak_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 text-sm font-semibold text-white transition"
+                >
+                  Open in Tab ↗
+                </a>
+              </div>
             </div>
           </Card>
         </div>
